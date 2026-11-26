@@ -1,0 +1,6 @@
+{
+  "name": "Sphere Wired",
+  "description": "Experience a decentralized, seamless, and high-performance digital ecosystem built on the next generation of data architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

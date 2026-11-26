@@ -1,0 +1,607 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+:root {
+  /* Responsive spacing & sizing tokens driven by CSS clamp() */
+  --grid-gutter: clamp(0.875rem, 1.6vw, 1.5rem);
+  --container-pad: clamp(1.25rem, 4.5vw, 4.5rem);
+  --header-height: clamp(4.5rem, 6.5vw, 5.75rem);
+  --hero-title-size: clamp(2.15rem, 4.8vw, 4.55rem);
+  --hero-kicker-size: clamp(0.72rem, 1.05vw, 1.02rem);
+  --hero-body-size: clamp(0.95rem, 1.18vw, 1.15rem);
+  --section-pad-y: clamp(4.5rem, 8.5vw, 8rem);
+  --section-heading-size: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+html,
+body {
+  background-color: #080511;
+  color: #e8e4f3;
+}
+
+/* 12-Column Responsive CSS Grid System */
+.sw-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* Hero Display Typography */
+.sw-headline-primary {
+  font-family: var(--font-display);
+  font-size: var(--hero-title-size);
+  line-height: 1.06;
+  letter-spacing: 0.03em;
+  background: linear-gradient(180deg, #ffffff 15%, #e5e9f5 62%, #b5bdd4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 22px rgba(215, 225, 255, 0.24));
+}
+
+.sw-headline-accent {
+  font-family: var(--font-display);
+  font-size: var(--hero-title-size);
+  line-height: 1.06;
+  letter-spacing: 0.04em;
+  background: linear-gradient(
+    180deg,
+    #f0b3ff 0%,
+    #b66bff 48%,
+    #7e3af2 88%,
+    #6366f1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(232, 162, 255, 0.35);
+  filter: drop-shadow(0 0 28px rgba(168, 85, 247, 0.42));
+}
+
+/* Background Depth Layers */
+.sw-depth-grid {
+  background-image:
+    linear-gradient(to right, rgba(147, 51, 234, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(147, 51, 234, 0.09) 1px, transparent 1px);
+  background-size: clamp(44px, 4.5vw, 68px) clamp(44px, 4.5vw, 68px);
+  mask-image: radial-gradient(
+    ellipse 85% 75% at 62% 72%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.2) 60%,
+    transparent 92%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 75% at 62% 72%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.2) 60%,
+    transparent 92%
+  );
+}
+
+.sw-depth-nebula {
+  background:
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(139, 92, 246, 0.24) 0%,
+      rgba(88, 28, 135, 0.14) 30%,
+      transparent 62%
+    ),
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(126, 34, 206, 0.22) 0%,
+      rgba(49, 17, 94, 0.08) 38%,
+      transparent 66%
+    ),
+    radial-gradient(
+      circle at 46% 12%,
+      rgba(56, 189, 248, 0.07) 0%,
+      transparent 48%
+    );
+}
+
+.sw-depth-streaks {
+  background:
+    linear-gradient(
+      128deg,
+      transparent 38%,
+      rgba(168, 85, 247, 0.08) 49%,
+      rgba(192, 132, 252, 0.16) 50.5%,
+      rgba(56, 189, 248, 0.06) 52%,
+      transparent 62%
+    ),
+    linear-gradient(
+      -34deg,
+      transparent 42%,
+      rgba(139, 92, 246, 0.07) 50%,
+      transparent 59%
+    );
+}
+
+/* SECTION 2 (Solutions): Orbital Concentric Arcs + Cross-Hatch Blueprint Depth */
+.sw-bg-solutions-wash {
+  background:
+    radial-gradient(
+      ellipse 60% 52% at 86% 18%,
+      rgba(139, 92, 246, 0.18) 0%,
+      rgba(76, 29, 149, 0.08) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 52% 48% at 12% 84%,
+      rgba(56, 189, 248, 0.09) 0%,
+      transparent 66%
+    );
+}
+
+.sw-bg-solutions-arcs {
+  background:
+    repeating-radial-gradient(
+      circle at 92% 16%,
+      transparent 0,
+      transparent 74px,
+      rgba(168, 85, 247, 0.11) 75px,
+      transparent 76px
+    );
+  mask-image: radial-gradient(
+    ellipse 80% 75% at 85% 24%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    transparent 88%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 75% at 85% 24%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    transparent 88%
+  );
+}
+
+.sw-bg-solutions-hatch {
+  background-image: linear-gradient(
+    135deg,
+    rgba(192, 132, 252, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: clamp(28px, 3.2vw, 46px) clamp(28px, 3.2vw, 46px);
+  mask-image: radial-gradient(
+    ellipse 65% 65% at 24% 68%,
+    rgba(0, 0, 0, 0.85) 0%,
+    transparent 82%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 65% 65% at 24% 68%,
+    rgba(0, 0, 0, 0.85) 0%,
+    transparent 82%
+  );
+}
+
+/* SECTION 3 (Technology): Precision Dot Lattice + Dual Optical Horizon Beams */
+.sw-bg-tech-wash {
+  background:
+    radial-gradient(
+      circle at 52% 48%,
+      rgba(124, 58, 237, 0.2) 0%,
+      rgba(30, 14, 62, 0.26) 44%,
+      rgba(8, 5, 17, 0.96) 80%
+    );
+}
+
+.sw-bg-tech-dots {
+  background-image: radial-gradient(
+    rgba(216, 180, 254, 0.22) 1px,
+    transparent 1px
+  );
+  background-size: clamp(22px, 2.2vw, 32px) clamp(22px, 2.2vw, 32px);
+  mask-image: radial-gradient(
+    ellipse 78% 70% at 54% 50%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.22) 60%,
+    transparent 92%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 78% 70% at 54% 50%,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.22) 60%,
+    transparent 92%
+  );
+}
+
+.sw-bg-tech-beams {
+  background:
+    linear-gradient(
+      98deg,
+      transparent 20%,
+      rgba(168, 85, 247, 0.08) 46%,
+      rgba(56, 189, 248, 0.14) 50%,
+      rgba(168, 85, 247, 0.06) 54%,
+      transparent 76%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 44%,
+      rgba(192, 132, 252, 0.09) 50%,
+      transparent 56%
+    );
+}
+
+/* SECTION 4 (Network): Global Telemetry Meridians & Abyssal Cyan-Violet Horizon */
+.sw-bg-network-wash {
+  background:
+    radial-gradient(
+      ellipse 70% 54% at 20% 28%,
+      rgba(56, 189, 248, 0.12) 0%,
+      rgba(99, 102, 241, 0.1) 36%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 52% at 84% 78%,
+      rgba(147, 51, 234, 0.16) 0%,
+      transparent 68%
+    );
+}
+
+.sw-bg-network-meridians {
+  background-image:
+    linear-gradient(to right, rgba(129, 140, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: clamp(72px, 7.5vw, 120px) clamp(26px, 2.8vw, 40px);
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.78) 28%,
+    rgba(0, 0, 0, 0.78) 72%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.78) 28%,
+    rgba(0, 0, 0, 0.78) 72%,
+    transparent 100%
+  );
+}
+
+.sw-bg-network-horizon {
+  background: radial-gradient(
+    ellipse 88% 26% at 50% 56%,
+    rgba(99, 102, 241, 0.17) 0%,
+    rgba(168, 85, 247, 0.09) 45%,
+    transparent 80%
+  );
+}
+
+/* SECTION 5 (About): Sculpted Monolith Diagonal Planes & Velvet Aurora */
+.sw-bg-about-wash {
+  background:
+    radial-gradient(
+      ellipse 64% 58% at 24% 76%,
+      rgba(126, 34, 206, 0.22) 0%,
+      rgba(59, 7, 100, 0.1) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 56% 48% at 80% 24%,
+      rgba(192, 132, 252, 0.12) 0%,
+      transparent 68%
+    );
+}
+
+.sw-bg-about-diagonals {
+  background-image: repeating-linear-gradient(
+    -32deg,
+    rgba(192, 132, 252, 0.055) 0px,
+    rgba(192, 132, 252, 0.055) 1px,
+    transparent 1px,
+    transparent 56px
+  );
+  mask-image: radial-gradient(
+    ellipse 76% 72% at 62% 46%,
+    rgba(0, 0, 0, 0.85) 0%,
+    transparent 86%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 76% 72% at 62% 46%,
+    rgba(0, 0, 0, 0.85) 0%,
+    transparent 86%
+  );
+}
+
+/* FINAL HIGH-IMPACT CTA SECTION: Darker Multi-Layer Interactive Depth (No 3D Sphere) */
+.sw-cta-abyss {
+  background:
+    radial-gradient(
+      ellipse 56% 50% at 50% 50%,
+      rgba(91, 33, 182, 0.24) 0%,
+      rgba(36, 13, 74, 0.22) 34%,
+      rgba(4, 2, 10, 0.98) 76%
+    ),
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(30, 27, 75, 0.24) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 78%,
+      rgba(88, 28, 135, 0.18) 0%,
+      transparent 52%
+    );
+}
+
+.sw-cta-grid {
+  background-image:
+    linear-gradient(to right, rgba(139, 92, 246, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.09) 1px, transparent 1px);
+  background-size: clamp(46px, 4.8vw, 72px) clamp(46px, 4.8vw, 72px);
+  mask-image: radial-gradient(
+    ellipse 72% 68% at 50% 50%,
+    rgba(0, 0, 0, 0.92) 8%,
+    rgba(0, 0, 0, 0.28) 54%,
+    transparent 86%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 68% at 50% 50%,
+    rgba(0, 0, 0, 0.92) 8%,
+    rgba(0, 0, 0, 0.28) 54%,
+    transparent 86%
+  );
+}
+
+.sw-cta-rings {
+  background:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0,
+      transparent 96px,
+      rgba(168, 85, 247, 0.1) 97px,
+      transparent 98px
+    );
+  mask-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.35) 48%,
+    transparent 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.35) 48%,
+    transparent 78%
+  );
+}
+
+.sw-cta-beams {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 34%,
+      rgba(124, 58, 237, 0.11) 48.5%,
+      rgba(192, 132, 252, 0.16) 50%,
+      rgba(56, 189, 248, 0.08) 51.5%,
+      transparent 66%
+    ),
+    linear-gradient(
+      -115deg,
+      transparent 38%,
+      rgba(99, 102, 241, 0.1) 50%,
+      transparent 62%
+    );
+}
+
+.sw-cta-headline-primary {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.4vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #ffffff 10%, #e4e8f7 60%, #9fa9c8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(200, 212, 255, 0.22));
+}
+
+.sw-cta-headline-accent {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.4vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  background: linear-gradient(
+    180deg,
+    #f3c4ff 0%,
+    #b76cff 46%,
+    #7c3aed 86%,
+    #4f46e5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(216, 180, 254, 0.36);
+  filter: drop-shadow(0 0 36px rgba(147, 51, 234, 0.48));
+}
+
+/* Primary Chamfered Sci-Fi CTA ("Get Started") */
+.sw-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.82rem, 1.1vw, 0.98rem) clamp(1.75rem, 2.8vw, 2.6rem);
+  font-size: clamp(0.9rem, 1.05vw, 1.04rem);
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 6px;
+  background: linear-gradient(
+    112deg,
+    #8b3dff 0%,
+    #6d4aff 48%,
+    #457aff 82%,
+    #38bdf8 100%
+  );
+  border: 1px solid rgba(196, 181, 253, 0.65);
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -8px 18px rgba(56, 189, 248, 0.35);
+  transition: box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.sw-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9px;
+  border: 1px solid rgba(129, 140, 248, 0.42);
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 0.12),
+    transparent 30%,
+    transparent 70%,
+    rgba(56, 189, 248, 0.14)
+  );
+  pointer-events: none;
+  transition: border-color 180ms cubic-bezier(0.16, 1, 0.3, 1), opacity 180ms ease;
+}
+
+.sw-btn-primary:hover {
+  box-shadow:
+    0 0 36px rgba(139, 92, 246, 0.72),
+    0 0 16px rgba(56, 189, 248, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62),
+    inset 0 -8px 22px rgba(56, 189, 248, 0.52);
+}
+
+.sw-btn-primary:hover::before {
+  border-color: rgba(167, 139, 250, 0.85);
+}
+
+/* Secondary HUD Bracketed Button ("Explore Network" & "Launch App") */
+.sw-btn-hud {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.82rem, 1.1vw, 0.98rem) clamp(1.6rem, 2.5vw, 2.35rem);
+  font-size: clamp(0.9rem, 1.05vw, 1.04rem);
+  font-weight: 500;
+  color: #f3f0ff;
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(46, 35, 76, 0.72) 0%,
+    rgba(24, 18, 43, 0.86) 68%,
+    rgba(72, 46, 120, 0.62) 100%
+  );
+  border: 1px solid rgba(167, 139, 250, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -10px 24px rgba(139, 92, 246, 0.2),
+    0 8px 24px rgba(4, 2, 12, 0.45);
+  transition:
+    border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.sw-btn-hud:hover {
+  border-color: rgba(192, 132, 252, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -12px 28px rgba(168, 85, 247, 0.35),
+    0 0 24px rgba(139, 92, 246, 0.3);
+}
+
+/* Header Launch App Variant */
+.sw-btn-launch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.58rem, 0.85vw, 0.72rem) clamp(1.15rem, 1.8vw, 1.65rem);
+  font-size: clamp(0.85rem, 0.95vw, 0.96rem);
+  font-weight: 500;
+  color: #f6f4ff;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 48, 84, 0.8) 0%,
+    rgba(28, 23, 46, 0.9) 100%
+  );
+  border: 1px solid rgba(167, 139, 250, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 0 22px rgba(139, 92, 246, 0.22);
+  transition:
+    border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.sw-btn-launch:hover {
+  border-color: rgba(196, 181, 253, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 0 28px rgba(168, 85, 247, 0.46);
+}
+
+/* Nav link animated micro-underline */
+.sw-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(0.88rem, 1vw, 0.98rem);
+  color: #cbc6df;
+  transition: color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sw-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #c084fc, #38bdf8);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sw-nav-link:hover,
+.sw-nav-link:focus-visible {
+  color: #ffffff;
+}
+
+.sw-nav-link:hover::after,
+.sw-nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Focus visibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Deep space ambient halo -->
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="56%" stop-color="#9333EA" stop-opacity="0.48" />
+      <stop offset="82%" stop-color="#6366F1" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#080511" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Primary machined obsidian-chrome sphere body -->
+    <radialGradient id="sphereCore" cx="34%" cy="28%" r="68%">
+      <stop offset="0%" stop-color="#F5E8FF" />
+      <stop offset="18%" stop-color="#B97DFF" />
+      <stop offset="42%" stop-color="#3B1D68" />
+      <stop offset="72%" stop-color="#150C26" />
+      <stop offset="92%" stop-color="#29124A" />
+      <stop offset="100%" stop-color="#9333EA" />
+    </radialGradient>
+
+    <!-- Top-left metallic concentric turbine cap -->
+    <radialGradient id="crownGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="35%" stop-color="#C084FC" stop-opacity="0.85" />
+      <stop offset="72%" stop-color="#251342" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0C0718" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Luminous violet-cyan orbital wire stroke -->
+    <linearGradient id="orbitStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D0FE" stop-opacity="0.95" />
+      <stop offset="48%" stop-color="#A855F7" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Rim glow stroke -->
+    <linearGradient id="rimStroke" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#F5E8FF" />
+      <stop offset="45%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+
+    <clipPath id="sphereClip">
+      <circle cx="32" cy="32" r="21" />
+    </clipPath>
+  </defs>
+
+  <!-- Ambient violet backdrop glow -->
+  <circle cx="32" cy="32" r="31" fill="#080511" />
+  <circle cx="32" cy="32" r="30" fill="url(#halo)" />
+
+  <!-- Back orbital trajectory wire -->
+  <ellipse
+    cx="32"
+    cy="32"
+    rx="28"
+    ry="11.5"
+    transform="rotate(-28 32 32)"
+    stroke="url(#orbitStroke)"
+    stroke-width="1.25"
+    stroke-opacity="0.65"
+  />
+  <ellipse
+    cx="32"
+    cy="32"
+    rx="27.5"
+    ry="10.5"
+    transform="rotate(34 32 32)"
+    stroke="#C084FC"
+    stroke-width="1"
+    stroke-opacity="0.5"
+  />
+
+  <!-- Core 3D Sphere -->
+  <circle cx="32" cy="32" r="21" fill="url(#sphereCore)" />
+
+  <!-- Sculpted armor channels & glowing conduits clipped to sphere -->
+  <g clip-path="url(#sphereClip)">
+    <!-- Concentric stepped turbine rings (top-left polar crown) -->
+    <ellipse
+      cx="24.5"
+      cy="23.5"
+      rx="13.5"
+      ry="11"
+      transform="rotate(-34 24.5 23.5)"
+      fill="none"
+      stroke="#120A22"
+      stroke-width="2.4"
+    />
+    <ellipse
+      cx="24.5"
+      cy="23.5"
+      rx="10.8"
+      ry="8.6"
+      transform="rotate(-34 24.5 23.5)"
+      fill="none"
+      stroke="#D8B4FE"
+      stroke-width="1.15"
+      stroke-opacity="0.85"
+    />
+    <ellipse
+      cx="24.5"
+      cy="23.5"
+      rx="7.5"
+      ry="5.8"
+      transform="rotate(-34 24.5 23.5)"
+      fill="url(#crownGrad)"
+      stroke="#0B0617"
+      stroke-width="1.4"
+    />
+
+    <!-- Diagonal equatorial metallic conduit ribs -->
+    <path
+      d="M11 36 C21 31, 31 35, 40 27 C46 22, 51 20, 55 21"
+      stroke="#0B0616"
+      stroke-width="3.2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M11 36 C21 31, 31 35, 40 27 C46 22, 51 20, 55 21"
+      stroke="#C084FC"
+      stroke-width="1.15"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M14 44 C25 41, 35 45, 45 36 C49 32, 52 30, 55 31"
+      stroke="#0B0616"
+      stroke-width="2.8"
+      stroke-linecap="round"
+    />
+    <path
+      d="M14 44 C25 41, 35 45, 45 36 C49 32, 52 30, 55 31"
+      stroke="#818CF8"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+
+    <!-- Lower-right recessed ring detail -->
+    <ellipse
+      cx="43"
+      cy="44"
+      rx="9.5"
+      ry="7"
+      transform="rotate(-34 43 44)"
+      fill="none"
+      stroke="#E879F9"
+      stroke-width="1.1"
+      stroke-opacity="0.72"
+    />
+  </g>
+
+  <!-- Fresnel violet outer rim -->
+  <circle
+    cx="32"
+    cy="32"
+    r="21"
+    stroke="url(#rimStroke)"
+    stroke-width="1.5"
+    stroke-opacity="0.9"
+  />
+
+  <!-- Front luminous orbital arc sweep -->
+  <path
+    d="M8.5 44.5 C19 52, 47 40, 56 19.5"
+    stroke="url(#orbitStroke)"
+    stroke-width="1.35"
+    stroke-linecap="round"
+    stroke-opacity="0.92"
+  />
+
+  <!-- Glowing orbital data nodes -->
+  <circle cx="54.5" cy="21" r="2.1" fill="#FFFFFF" />
+  <circle cx="54.5" cy="21" r="3.8" fill="#C084FC" fill-opacity="0.45" />
+  <circle cx="11.5" cy="43.5" r="1.6" fill="#E9D5FF" />
+  <circle cx="46.5" cy="48.5" r="1.5" fill="#93C5FD" />
+</svg>
